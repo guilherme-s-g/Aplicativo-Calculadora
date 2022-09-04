@@ -8,7 +8,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends AppCompatActivity implements View.OnClickListener
 {
     private Button buttonUm,buttonDois,buttonTres,buttonQuatro,buttonCinco,buttonSeis,buttonSete,buttonOito,buttonNove,buttonZero;
     private Button buttonPonto,buttonResultado,buttonDivisao,buttonMultiplicacao,buttonSoma,buttonSubtracao,buttonDelete;
@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         buttonUm = findViewById(R.id.buttonUm);
         buttonDois = findViewById(R.id.buttonDois);
         buttonTres = findViewById(R.id.buttonTres);
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity
         buttonSubtracao = findViewById(R.id.buttonSubtracao);
         buttonDelete = findViewById(R.id.buttonDelete);
         editTextNumeros = findViewById(R.id.editTextNumeros);
+
     }
 
     public void calcular(View view)
@@ -45,24 +47,23 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    public void onClick (View view)
+    public void exibirNumeros (View view)
     {
-        try
-        {
-            int id = view.getId();
-            if (id == this.buttonUm.getId())
-            {
-                double numeroUm = 1;
-            }
-            else if (id == this.buttonDois.getId())
-            {
-                double numeroDois = 2;
-            }
-        }
-        catch (Exception e)
-        {
-            System.out.println("Erro");
-        }
+        String numerosDigitados = editTextNumeros.toString();
     }
 
+    @Override
+    public void onClick(View view)
+    {
+        int id = view.getId();
+
+        if (id == this.buttonUm.getId())
+        {
+            double numeroUm = 1;
+        }
+        else if (id == this.buttonDois.getId())
+        {
+            double numeroDois = 2;
+        }
+    }
 }
